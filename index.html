@@ -1,41 +1,100 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons" rel="stylesheet">
+
   <link href="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="css/index.css">
+  
+  <link rel="stylesheet" href="index.css">
 </head>
+
 <body>
   <div id="app">
     <v-app>
-
-      <v-toolbar 
-      color="light-blue lighten-1" 
-      dark 
-      extended >
-        
-        <v-toolbar-title v-slot:extension class="white--text">Dener Vieira</v-toolbar-title>
-        <v-spacer></v-spacer>
-        
-        <v-btn icon>
-          <v-icon>search</v-icon>
-        </v-btn>
-
-        <v-btn icon>
-          <v-icon>apps</v-icon>
-        </v-btn>
-
+      <v-toolbar color="light-blue darken-1" dark extended >
       </v-toolbar>
 
-      <v-content>
-        <v-container>Hello world</v-container>
-      </v-content>
+      <v-layout row wrap>
+        <v-flex xs10 md8 offset-xs1 offset-md2 mb-3>
+          <v-card class="card--flex-toolbar">
+            <v-toolbar card prominent color="grey lighten-5">
+              <v-toolbar-title class="blue-grey--text text--darken-1">
+                {{ name }}
+              </v-toolbar-title>
+              <v-spacer></v-spacer>
+              <v-btn icon>
+                <v-icon>more_horiz</v-icon>
+              </v-btn>
+            </v-toolbar>
+
+            <v-container>
+              <v-layout align-center column>
+                <v-img
+                src="img/profile_photo_3x4.jpeg"
+                width="250px"
+                aspect-ratio="1"
+                class="img-rounded"
+                ></v-img>
+                <div class="display-2 font-weight-light mt-3" >
+                  {{ name }}
+                </div>
+                <div class="subheading grey--text mt-3">
+                  {{ office }}
+                </div>
+              </v-layout>
+            </v-container>
+          </v-card>
+        </v-flex>
+
+        <v-flex xs10 md8 offset-xs1 offset-md2 mb-3>
+          <v-card>
+            <v-container style="height: 500px">
+              
+            </v-container>
+          </v-card>
+        </v-flex>
+      </v-layout>
+
+      <v-footer
+        dark
+        height="auto">
+        <v-card
+          class="flex"
+          flat
+          tile>
+          <v-card-title class="light-blue darken-1">
+            <strong class="subheading">Mantenha-se conectado nas redes sociais!</strong>
+            <v-spacer></v-spacer>
+            <v-btn
+              v-for="icon in socialMediaIcons"
+              :key="icon"
+              class="mr-3"
+              dark
+              icon>
+              <v-icon size="24px">
+                {{ icon }}
+              </v-icon>
+            </v-btn>
+          </v-card-title>
+
+          <v-card-actions class="blue-grey darken-3 justify-center">
+            &copy; {{ new Date().getFullYear() }} — 
+            <strong>
+              {{ name }}
+            </strong>
+          </v-card-actions>
+        </v-card>
+      </v-footer>
     </v-app>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.js"></script>
-  <script src="js/index.js"></script>
+  <script src="index.js"></script>
 </body>
 </html>
